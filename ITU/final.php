@@ -1,18 +1,23 @@
 <?php
+$c = 0;
+$sum = 0;
 $itu =[
     'names' => [
-        'prod1',
-        'prod2',
-        'prod3',
-        'prod4'
+
     ],
-    'count' => 10,
+    'count' => 0,
     'items' => [
-        'name' => "",
-        'price' => 0
+
     ],
     'sum' => 0
 ];
-foreach ($_GET as $key => $value){
 
+foreach ($_GET as $key => $value){
+    $itu['items'][$key] = $value;
+    $itu['names'][] = $key;
+    $c += 1;
+    $sum += $value;
 }
+$itu['count'] = $c;
+$itu['sum'] = $sum;
+var_dump($itu);

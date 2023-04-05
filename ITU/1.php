@@ -11,4 +11,4 @@ for ($i = 0; $i < strlen($str); $i++){
         $c++;
     }
 }
-echo var_dump($res);
+var_dump($res);
