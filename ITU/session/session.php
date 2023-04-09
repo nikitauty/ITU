@@ -10,12 +10,13 @@ function auth($login, $pass) : bool { //Проверка пароля
 
         $_SESSION["is_auth"] = true;
         $_SESSION["login"] = $login;
-        header("Location: session.php");
+
         return true;
     } else {
         $_SESSION["is_auth"] = false;
         return false;
     }
+    header("Location: session.php");
 }
 
 $login = $_POST['name'];
@@ -23,7 +24,7 @@ $pass = $_POST['pass'];
 
 $err = "Введите корректные данные";
 
-$form = '<form action="session.php" method="post">
+$form = '<form action="session.php" method="post" name="In">
     <p>Email: <input type="text" name="name" /></p>
     <p>Password: <input type="password" name="pass" /></p>
     <p><input type="submit" value="Войти"/></p>
