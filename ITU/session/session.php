@@ -7,8 +7,10 @@ function isAuth() { //Проверка на авторизованного по�
 
 function auth($login, $pass) : bool { //Проверка пароля
     if ($login === "lol" AND $pass === "1234"){
+
         $_SESSION["is_auth"] = true;
         $_SESSION["login"] = $login;
+        header("Location: session.php");
         return true;
     } else {
         $_SESSION["is_auth"] = false;
@@ -32,6 +34,7 @@ if ($_POST['delete']){ //Удаление сессии
     session_destroy();
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="ru">
