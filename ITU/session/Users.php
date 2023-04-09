@@ -17,7 +17,8 @@ class Users{
     }
     public function getLogin(){
         return $this->login;
-    }public function getPassword(){
-    return $this->pass;
-}
+    }
+    public function getPassword(){
+        return $this->pass;
+    }
 }
