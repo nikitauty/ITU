@@ -4,7 +4,9 @@ function my_autoloader($class) {
 }
 
 spl_autoload_register("my_autoloader");
+
 session_start();
+
 $del = null;
 $user = new Users();
 
@@ -37,12 +39,6 @@ if (isset($_POST['delete'])){
 
 $err = "Введите корректные данные";
 
-$form = '<form action="session.php" method="post" name="In">
-    <p>Email: <input type="text" name="name" /></p>
-    <p>Password: <input type="password" name="pass" /></p>
-    <p><input type="submit" value="Войти"/></p>
-</form>';  //Шаблон формы
-
 if ($del){ //Удаление сессии
     $_SESSION = [];
     session_destroy();
@@ -65,7 +61,11 @@ if ($del){ //Удаление сессии
         <p><input type="submit" name="delete" value="Выйти"/></p>
     </form>
 <?php else: ?>
-    <?=$form?>
+    <form action="session.php" method="post" name="In">
+        <p>Email: <input type="text" name="name" /></p>
+        <p>Password: <input type="password" name="pass" /></p>
+        <p><input type="submit" value="Войти"/></p>
+    </form>
 <?php endif; ?>
 </body>
 </html>
