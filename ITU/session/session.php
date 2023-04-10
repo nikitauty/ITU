@@ -15,7 +15,7 @@ function isAuth() { //Проверка на авторизованного по�
 }
 
 function auth($user) : bool { //Проверка пароля
-    if ($user->getLogin() === "lol" AND $user->getPassword() === "1234"){
+    if ($user->auth($user->getLogin(), $user->getPassword())){
         $_SESSION["is_auth"] = true;
         $_SESSION["login"] = $user->getLogin();
         header("Location: session.php");
@@ -56,7 +56,7 @@ if ($del){ //Удаление сессии
 <?php endif; ?>
 <?php if(isAuth()): ?>
     <h1>Авторизация прошла успешно</h1>
-    Username: <?=$_SESSION['login']?> <br/>
+    Username: <?=$_SESSION['login']?><br/>
     <form method="post">
         <p><input type="submit" name="delete" value="Выйти"/></p>
     </form>

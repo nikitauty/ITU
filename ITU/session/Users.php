@@ -21,4 +21,10 @@ class Users{
     public function getPassword(){
         return $this->pass;
     }
+    public function auth($login, $pass) {
+        if ($this->login === 'lol' AND $this->pass === '1234') {
+            return true;
+        }
+        return false;
+    }
 }
